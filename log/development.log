@@ -1,0 +1,312 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (29.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (16.2ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100303172327)
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) NOT NULL, "crypted_password" varchar(255) NOT NULL, "password_salt" varchar(255) NOT NULL, "persistence_token" varchar(255) NOT NULL, "single_access_token" varchar(255) NOT NULL, "perishable_token" varchar(255) NOT NULL, "login_count" integer DEFAULT 0 NOT NULL, "failed_login_count" integer DEFAULT 0 NOT NULL, "last_request_at" datetime, "current_login_at" datetime, "last_login_at" datetime, "current_login_ip" varchar(255), "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100303172327')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+/!\ FAILSAFE /!\  Wed Mar 03 12:45:14 -0500 2010
+  Status: 500 Internal Server Error
+  /Users/Charlie/Sites/facebooker-authlogic-bridge/app/controllers/application_controller.rb:25: syntax error, unexpected kEND, expecting $end
+    /Users/Charlie/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Users/Charlie/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:380:in `load_file'
+    /Users/Charlie/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Users/Charlie/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:379:in `load_file'
+    /Users/Charlie/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Users/Charlie/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Users/Charlie/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Users/Charlie/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Users/Charlie/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    /Users/Charlie/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Users/Charlie/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Users/Charlie/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/Charlie/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+    /Users/Charlie/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/facebooker-1.0.64/lib/rack/facebook.rb:43:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+    /Users/Charlie/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+    /Users/Charlie/.gem/ruby/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+    /Users/Charlie/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+    /Users/Charlie/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/Charlie/.gem/ruby/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+    /Users/Charlie/.gem/ruby/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-03-03 12:45:31) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+
+NoMethodError (undefined method `require_no_user' for #<UserSessionsController:0x10331e558>):
+  
+
+Rendered rescues/_trace (150.4ms)
+Rendered rescues/_request_and_response (19.0ms)
+Rendering rescues/layout (200)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-03-03 12:46:35) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NameError (undefined local variable or method `my_value' for #<Class:0x1036366c8>):
+  app/models/user.rb:3
+  authlogic (2.1.3) lib/authlogic/acts_as_authentic/base.rb:33:in `acts_as_authentic'
+  app/models/user.rb:2
+  authlogic (2.1.3) lib/authlogic/session/klass.rb:33:in `klass'
+  authlogic (2.1.3) lib/authlogic/session/password.rb:90:in `login_field'
+  authlogic (2.1.3) lib/authlogic/session/password.rb:213:in `login_field'
+  authlogic (2.1.3) lib/authlogic/session/password.rb:118:in `initialize'
+  authlogic (2.1.3) lib/authlogic/session/activation.rb:48:in `initialize'
+  authlogic (2.1.3) lib/authlogic/session/klass.rb:64:in `initialize'
+  authlogic (2.1.3) lib/authlogic/session/scopes.rb:79:in `initialize'
+  authlogic (2.1.3) lib/authlogic/session/persistence.rb:37:in `new'
+  authlogic (2.1.3) lib/authlogic/session/persistence.rb:37:in `find'
+  app/controllers/application_controller.rb:32:in `current_user_session'
+  app/controllers/application_controller.rb:37:in `current_user'
+  app/controllers/application_controller.rb:21:in `require_no_user'
+
+Rendered rescues/_trace (62.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (200)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-03-03 12:47:00) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering user_sessions/new
+Completed in 245ms (View: 131, DB: 0) | 200 OK [http://localhost/user_session/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-03-03 12:47:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering user_sessions/new
+Completed in 22ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-03-03 12:47:30) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering users/new
+Rendered users/_form (19.2ms)
+Completed in 68ms (View: 52, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-03-03 12:47:47) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "authenticity_token"=>"v0y2XIhVitLu/m1dUilaL0/HH84CKgcAMe5fTsCgAug=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"rcwhite@colby.edu"}}
+  [4;35;1mUser Load (17.6ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'rcwhite@colby.edu') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '933b872e752569a5f856945a2af73eae4207aa0a85b01f34a584e717379087b1cbd8b2f6e65607edb52d43e5b45b5312393c6f5cc54a690c09820fe2502c4f3e') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'Ga6sm7LUV0NrF2XID-Xz') LIMIT 1[0m
+Rendering users/new
+Rendered users/_form (4.2ms)
+Completed in 710ms (View: 11, DB: 18) | 200 OK [http://localhost/account]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-03-03 12:47:55) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "authenticity_token"=>"v0y2XIhVitLu/m1dUilaL0/HH84CKgcAMe5fTsCgAug=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"rcwhite@colby.edu"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'rcwhite@colby.edu') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '4477209a4be92481ce3d032cf3b81648c2d04fbf97bf42e39d2b7ab61cdf5d50c4810e22a21307732aacce44f7a9e6ee306f5fbb2f265eafeae4d57f7cf4d07b') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."single_access_token" = 'ph7nlyUu_LMMeFcxfocl') LIMIT 1[0m
+  [4;35;1mUser Create (35.4ms)[0m   [0mINSERT INTO "users" ("single_access_token", "last_request_at", "created_at", "crypted_password", "perishable_token", "updated_at", "failed_login_count", "current_login_ip", "password_salt", "current_login_at", "persistence_token", "login_count", "last_login_ip", "last_login_at", "email") VALUES('ph7nlyUu_LMMeFcxfocl', '2010-03-03 17:47:55', '2010-03-03 17:47:55', '194eb608c8f7a5182b82fe4799022111632d5ef8d88d5d175b5049b217a87ad68fa1796017e483eb3dc76d35c598d4a594b3fe364615d04e546964cb2a01b581', 'DTOSRWlA4irqfDN2jn9E', '2010-03-03 17:47:55', 0, '127.0.0.1', '-LEhHh762adeZx-XcjKo', '2010-03-03 17:47:55', '4477209a4be92481ce3d032cf3b81648c2d04fbf97bf42e39d2b7ab61cdf5d50c4810e22a21307732aacce44f7a9e6ee306f5fbb2f265eafeae4d57f7cf4d07b', 1, NULL, NULL, 'rcwhite@colby.edu')[0m
+
+NoMethodError (undefined method `redirect_back_or_default' for #<UsersController:0x1032d9c78>):
+  app/controllers/users_controller.rb:13:in `create'
+
+Rendered rescues/_trace (46.2ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (200)
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-03-03 12:48:17) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "authenticity_token"=>"v0y2XIhVitLu/m1dUilaL0/HH84CKgcAMe5fTsCgAug=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"rcwhite@colby.edu"}}
+  [4;36;1mUser Load (13.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '4477209a4be92481ce3d032cf3b81648c2d04fbf97bf42e39d2b7ab61cdf5d50c4810e22a21307732aacce44f7a9e6ee306f5fbb2f265eafeae4d57f7cf4d07b') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-03-03 17:48:18', "perishable_token" = 'u-UM_ILio0bqNS_--RJ4', "last_request_at" = '2010-03-03 17:48:18' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/account
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 666ms (DB: 14) | 302 Found [http://localhost/account]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-03-03 12:48:18) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '4477209a4be92481ce3d032cf3b81648c2d04fbf97bf42e39d2b7ab61cdf5d50c4810e22a21307732aacce44f7a9e6ee306f5fbb2f265eafeae4d57f7cf4d07b') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-03-03 17:48:18', "perishable_token" = 'xt7magN6thBgyRaXB-dt', "last_request_at" = '2010-03-03 17:48:18' WHERE "id" = 1[0m
+Rendering users/show
+
+ActionView::TemplateError (undefined method `login' for #<User:0x1034160c8>) on line #3 of app/views/users/show.html.erb:
+1: <p>
+2:   <b>Login:</b>
+3:   <%=h @user.login %>
+4: </p>
+5:  
+6: <p>
+
+    app/views/users/show.html.erb:3
+
+Rendered rescues/_trace (59.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (200)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-03-03 12:48:45) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '4477209a4be92481ce3d032cf3b81648c2d04fbf97bf42e39d2b7ab61cdf5d50c4810e22a21307732aacce44f7a9e6ee306f5fbb2f265eafeae4d57f7cf4d07b') LIMIT 1[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-03-03 17:48:45', "perishable_token" = 'kMrtyWyFwUC90k8RuBiv', "last_request_at" = '2010-03-03 17:48:45' WHERE "id" = 1[0m
+Rendering users/show
+Completed in 175ms (View: 7, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-03-03 13:05:53) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+
+NoMethodError (undefined method `user' for nil:NilClass):
+  app/controllers/application_controller.rb:23:in `set_current_user'
+
+Rendered rescues/_trace (93.0ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (200)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-03-03 13:07:40) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (36.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '4477209a4be92481ce3d032cf3b81648c2d04fbf97bf42e39d2b7ab61cdf5d50c4810e22a21307732aacce44f7a9e6ee306f5fbb2f265eafeae4d57f7cf4d07b') LIMIT 1[0m
+
+ActiveRecord::StatementInvalid (Could not find table 'sessions'):
+  authlogic (2.1.3) lib/authlogic/session/session.rb:56:in `update_session'
+  authlogic (2.1.3) lib/authlogic/session/callbacks.rb:72:in `after_persisting'
+  authlogic (2.1.3) lib/authlogic/session/persistence.rb:59:in `persisting?'
+  authlogic (2.1.3) lib/authlogic/session/persistence.rb:39:in `find'
+  app/controllers/application_controller.rb:67:in `current_user_session'
+  app/controllers/application_controller.rb:72:in `current_user'
+  app/controllers/application_controller.rb:47:in `require_no_user'
+
+Rendered rescues/_trace (90.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (200)
+  [4;36;1mSQL (20.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100303172327)
+Migrating to CreateSessions (20100303175141)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100303175141')[0m
+Migrating to AddFacebookFieldsToUser (20100303175240)
+  [4;35;1mSQL (34.1ms)[0m   [0mALTER TABLE "users" ADD "facebook_id" integer(8)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mALTER TABLE "users" ADD "session_key" varchar(255)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100303175240')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("sessions")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_sessions_on_session_id')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("users")[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-03-03 13:09:58) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '4477209a4be92481ce3d032cf3b81648c2d04fbf97bf42e39d2b7ab61cdf5d50c4810e22a21307732aacce44f7a9e6ee306f5fbb2f265eafeae4d57f7cf4d07b') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-03-03 18:09:58', "perishable_token" = 'SA-SdU8wa45LdnndC5Su', "last_request_at" = '2010-03-03 18:09:58' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/account
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 673ms (DB: 2) | 302 Found [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-03-03 13:09:58) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '4477209a4be92481ce3d032cf3b81648c2d04fbf97bf42e39d2b7ab61cdf5d50c4810e22a21307732aacce44f7a9e6ee306f5fbb2f265eafeae4d57f7cf4d07b') LIMIT 1[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-03-03 18:09:59', "perishable_token" = 'dS53WmJKxJMegZdmkyzS', "last_request_at" = '2010-03-03 18:09:59' WHERE "id" = 1[0m
+Rendering users/show
+Completed in 152ms (View: 22, DB: 1) | 200 OK [http://localhost/account]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-03 13:10:12) [GET]
+
+ActionController::RoutingError (No route matches "/user_session/destroy" with {:method=>:get, :canvas=>false}):
+  
+
+Rendering rescues/layout (200)
+
+
+Processing UserSessionsController#show (for 127.0.0.1 at 2010-03-03 13:10:16) [GET]
+  Parameters: {"action"=>"show", "controller"=>"user_sessions"}
+
+ActionController::UnknownAction (No action responded to show. Actions: create, create_facebook_session, create_facebook_session_with_secret, create_user, current_user=, destroy, facebook_params, facebook_session, facebook_session_parameters, facebook_setup?, new, one_or_true, redirect_back_or_default, redirect_to, render_publisher_error, render_publisher_interface, render_publisher_response, require_no_user, require_user, set_current_user, set_facebook_session, store_location, top_redirect_to, wants_interface?, and zero_or_false):
+  
+
+Rendering rescues/layout (200)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-03-03 13:10:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '4477209a4be92481ce3d032cf3b81648c2d04fbf97bf42e39d2b7ab61cdf5d50c4810e22a21307732aacce44f7a9e6ee306f5fbb2f265eafeae4d57f7cf4d07b') LIMIT 1[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-03-03 18:10:23', "perishable_token" = 'DcXuqcwuBfY01u5JHrOH', "last_request_at" = '2010-03-03 18:10:23' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/account
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 144ms (DB: 2) | 302 Found [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-03-03 13:10:23) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '4477209a4be92481ce3d032cf3b81648c2d04fbf97bf42e39d2b7ab61cdf5d50c4810e22a21307732aacce44f7a9e6ee306f5fbb2f265eafeae4d57f7cf4d07b') LIMIT 1[0m
+  [4;35;1mUser Update (90.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-03-03 18:10:23', "perishable_token" = 'KOe0naQ6IVV5SxwUwbOy', "last_request_at" = '2010-03-03 18:10:23' WHERE "id" = 1[0m
+Rendering users/show
+Completed in 193ms (View: 1, DB: 91) | 200 OK [http://localhost/account]
