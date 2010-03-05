@@ -1,0 +1,11 @@
+User ID:
+  <%= @user.id %>
+
+<% if facebook_session %>
+  <%= "I'm From Facebook"%>
+
+<% end %>
+
+  <b>Login:</b>
+  <%=h @user.email %>
+</p>
