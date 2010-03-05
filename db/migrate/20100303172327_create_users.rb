@@ -1,7 +1,7 @@
 class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
-          t.string    :email,                            # optional, you can use login instead, or both
+          t.string    :email                            # optional, you can use login instead, or both
           t.string    :crypted_password                   # optional, see below
           t.string    :password_salt                      # optional, but highly recommended
           t.string    :persistence_token,   :null => false                # required
