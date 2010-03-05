@@ -33,7 +33,8 @@ class ApplicationController < ActionController::Base
   end
   
   def login_from_fb
-    if ensure_authenticated_to_facebook 
+    if request_comes_from_facebook
+      ensure_authenticated_to_facebook 
       self.current_user = User.for(facebook_session.user.to_i, facebook_session)
     end
   end
