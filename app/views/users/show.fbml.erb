@@ -1,11 +1,6 @@
 User ID:
   <%= @user.id %>
 
-<% if facebook_session %>
-  <%= "I'm From Facebook"%>
-
-<% end %>
-
-  <b>Email:</b>
-  <%=h @user.email %>
-</p>
+<p>
+	
+	<fb:profile-pic uid="<%=current_user.facebook_id%>" linked="true" />

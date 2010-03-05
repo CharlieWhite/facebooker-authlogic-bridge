@@ -3,13 +3,15 @@ User ID:
   <%= @user.id %>
 
 <% if facebook_session %>
-  <%= "I'm From Facebook"%>
+ <fb:photo pid="<%=current_user.facebook_id%>"></fb:photo>
 
-<% end %>
 
+<% else %>
   <b>Email:</b>
   <%=h @user.email %>
 </p>
+
+<% end %>
 
 
  
