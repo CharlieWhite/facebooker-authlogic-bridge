@@ -14,13 +14,8 @@ class ApplicationController < ActionController::Base
   attr_accessor :current_user 
   helper_attr :current_user
   
-  before_filter :check_fb_app_installed?
+  before_filter :check_if_fb_app_installed?
   
-  def check_fb_app_installed?
-    if request_comes_from_facebook?
-      ensure_application_is_installed_by_facebook_user
-    end
-  end
   
   def current_user_session
           return @current_user_session if defined?(@current_user_session)
@@ -29,25 +24,29 @@ class ApplicationController < ActionController::Base
 
   def current_user
           return @current_user if defined?(@current_user)
-          @current_user = login_from_fb  || login_from_fb_connect || (current_user_session && current_user_session.user) 
+          @current_user = login_from_fb || login_from_fb_connect || (current_user_session && current_user_session.user) 
   end
   
   def login_from_fb_connect
-      logger.info("in login from fb_connect")
     if set_facebook_session
       self.current_user = User.for(facebook_session.user.to_i, facebook_session)
     end 
   end
   
   def login_from_fb
-    logger.info("in login from fb")
     if request_comes_from_facebook?
      if ensure_authenticated_to_facebook 
-       logger.info("in authenticated from fb")
        self.current_user = User.for(facebook_session.user.to_i, facebook_session)
      end
     end
   end
+  
+  def check_if_fb_app_installed?
+    if request_comes_from_facebook?
+      ensure_application_is_installed_by_facebook_user
+    end
+  end
+  
   
   def require_user
         unless current_user
