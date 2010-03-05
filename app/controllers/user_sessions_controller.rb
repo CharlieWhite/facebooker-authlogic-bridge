@@ -23,7 +23,8 @@ class UserSessionsController < ApplicationController
   end
   
   def logout_facebook_connect
-      clear_facebook_session_information
+     clear_facebook_session_information
+       flash[:notice] = "FB Logout successful!"
       redirect_to root_url
     end
 end
