@@ -21,7 +21,7 @@ current_user can be used anywhere in the application, no matter how the user log
 
 Like in AuthLogic, require_user and require_no_user can be used as before filters.
 
-The before filter :check_if_fb_app_installed? ensures that the canvas app was explicitly add by the user. Facebook won't pass the correct session_key otherwise.
+The before filter :check_if_fb_app_installed? ensures that the canvas app was explicitly added by the user. Facebook won't pass the correct session_key otherwise.
 
 BUG ALERT: There is currently a bug when logging out of facebook connect on the web app. You need to click Facebook's logout button twice.
 If anyone has a fix for this, please email me at charlie@fluidtickets.com
