@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :account, :controller => "users"
   map.resources :users
   
-  map.root '/account' # optional, this just sets the root route
+  map.root :controller => "users", :action => "show" # optional, this just sets the root route
    
   # The priority is based upon order of creation: first created -> highest priority.
 
