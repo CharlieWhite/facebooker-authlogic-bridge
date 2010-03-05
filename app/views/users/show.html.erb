@@ -3,8 +3,10 @@ User ID:
   <%= @user.id %>
 
 <% if facebook_session %>
+<%= fb_connect_javascript_tag %>
+<%= init_fb_connect "XFBML"%>
  <fb:photo pid="<%=current_user.facebook_id%>"></fb:photo>
-
+ I'm connected with facebook
 
 <% else %>
   <b>Email:</b>
