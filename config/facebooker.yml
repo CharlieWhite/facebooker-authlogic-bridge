@@ -14,7 +14,7 @@
 development:
   api_key: f542c9738802d1d4b83830c83e1fa2f4
   secret_key: b3dd3fb523da94924849989502fa6598
-  canvas_page_name: http://facebooker-authlogic-bridge.heroku.com
+  canvas_page_name: fb-authlogic-bridge
   callback_url: http://facebooker-authlogic-bridge.heroku.com
   pretty_errors: true
   set_asset_host_to_callback_url: true
@@ -41,7 +41,7 @@ test:
 production:
       api_key: f542c9738802d1d4b83830c83e1fa2f4
       secret_key: b3dd3fb523da94924849989502fa6598
-      canvas_page_name: http://facebooker-authlogic-bridge.heroku.com
+      canvas_page_name: fb-authlogic-bridge
       callback_url: http://facebooker-authlogic-bridge.heroku.com
       pretty_errors: true
       set_asset_host_to_callback_url: true
