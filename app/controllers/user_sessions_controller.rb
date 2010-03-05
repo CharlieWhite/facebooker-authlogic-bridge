@@ -22,9 +22,12 @@ class UserSessionsController < ApplicationController
   end
   
   def logout_facebook
-       clear_facebook_session_information
-       redirect_to root_url
-     end
+    clear_facebook_session_information
+    clear_fb_cookies!
+    reset_session # i.e. logout the user
+    flash[:notice] = "You have been disconnected from Facebook."
+    redirect_to root_url
+  end
 end
 
 #
