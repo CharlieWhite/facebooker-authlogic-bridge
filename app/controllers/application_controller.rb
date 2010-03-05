@@ -23,18 +23,21 @@ class ApplicationController < ActionController::Base
 
   def current_user
           return @current_user if defined?(@current_user)
-          @current_user = (current_user_session && current_user_session.user) || login_from_fb_connect || login_from_fb
+          @current_user = login_from_fb  || login_from_fb_connect || (current_user_session && current_user_session.user) 
   end
   
   def login_from_fb_connect
+      logger.info("in login from fb_connect")
     if set_facebook_session
       self.current_user = User.for(facebook_session.user.to_i, facebook_session)
     end 
   end
   
   def login_from_fb
+    logger.info("in login from fb")
     if request_comes_from_facebook?
-     if set_facebook_session
+     if ensure_authenticated_to_facebook 
+       logger.info("in authenticated from fb")
       self.current_user = User.for(facebook_session.user.to_i, facebook_session)
      end
     end
