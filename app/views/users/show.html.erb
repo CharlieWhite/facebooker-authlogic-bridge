@@ -1,9 +1,15 @@
-<p>
-  <b>Email:</b>
+
+  <b>Login:</b>
   <%=h @user.email %>
 </p>
+
+
  
  
 <%= link_to 'Edit', edit_account_path %>
 
-    <td><%= link_to 'Logout', user_session_path, :confirm => 'Are you sure?', :method => :delete %></td>
+<%= link_to 'logout', logout_path, :method => :delete %> 
+<p>
+<a href="/logout_fb" onclick="FB.Connect.logout(function() { reload(); }); return false;" ><img id="fb_logout_image" src="http://static.ak.fbcdn.net/images/fbconnect/logout-buttons/logout_small.gif" alt="Connect"/></a>
+
+</p>
