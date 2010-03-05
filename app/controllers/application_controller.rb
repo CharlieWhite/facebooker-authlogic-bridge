@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
           return @current_user if defined?(@current_user)
-          @current_user = login_from_fb || login_from_fb_connect || (current_user_session && current_user_session.user) 
+          @current_user = (current_user_session && current_user_session.user) ||login_from_fb_connect ||  login_from_fb
   end
   
   def login_from_fb_connect
