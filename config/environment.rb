@@ -41,3 +41,7 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+
+ENV['FACEBOOK_XD_RECEIVER'] = "/facebook/sign_in/xd_receiver.htm"
+ENV['FACEBOOK_CONNECT_URL'] = "/facebook/sign_in"
+ENV['FACEBOOK_SIGNED_IN_URL'] = "/facebook/authenticate"
