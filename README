@@ -10,6 +10,9 @@ The code is hosted at Github here, http://github.com/fluidtickets/facebooker-aut
 and can be cloned here: git@github.com:fluidtickets/facebooker-authlogic-bridge.git
 
 
+Google Group Discussion Here: http://groups.google.com/group/facebooker/browse_thread/thread/537a502de800f683
+
+
 
 This application is structured around the Authlogic example tutorial. It's definitely possible to clean this up within the Authlogic code, but i'll leave that to someone else.
 
